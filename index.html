@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login dengan Asset 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Masuk</button>
+        </form>
+        <div id="3d-model">
+            <!-- Tempat untuk model 3D -->
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@google/model-viewer"></script>
+    <script>
+        const modelViewer = document.createElement('model-viewer');
+        modelViewer.src = 'path/to/3dmodel.glb';
+        modelViewer.alt = '3D Model';
+        modelViewer.ar = true;
+        modelViewer.autoRotate = true;
+        modelViewer.cameraControls = true;
+        document.getElementById('3d-model').appendChild(modelViewer);
+        document.addEventListener('DOMContentLoaded', function() {
+            var backgrounds = [
+                'background1.jpg',
+                'background2.jpg',
+                'background3.jpg' // Tambahkan lebih banyak jika ada
+            ];
+            var selectedBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+            document.body.style.backgroundImage = 'url(' + selectedBackground + ')';
+        });
+    </script>
+</body>
+</html>
